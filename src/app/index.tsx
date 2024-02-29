@@ -55,9 +55,9 @@ export default function Home() {
           />
         )}
         horizontal
-        className="max-h-10 mt-5"
+        className="max-h-10 mt-4"
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ gap: 12, paddingHorizontal: 20 }}
+        contentContainerStyle={{ gap: 10, paddingHorizontal: 20 }}
       />
 
       <SectionList
@@ -71,7 +71,7 @@ export default function Home() {
           </Link>
         )}
         renderSectionHeader={({ section: { title } }) => (
-          <Text className="text-xl text-white font-heading mt-8 mb-3">
+          <Text className="text-xl text-white font-heading mt-5 mb-3">
             {title}
           </Text>
         )}
