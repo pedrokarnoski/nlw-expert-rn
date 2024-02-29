@@ -7,10 +7,13 @@ import {
   Text,
 } from "react-native";
 
+import { formatCurrency } from "@/utils/functions/format-currency";
+
 type ProductDataProps = {
   title: string;
   description: string;
   quantity?: number;
+  price: number;
   thumbnail: {
     uri: string;
   };
@@ -33,6 +36,9 @@ export const Product = forwardRef<TouchableOpacity, ProductProps>(
           <View className="flex-row items-center">
             <Text className="text-slate-100 font-subtitle text-base flex-1">
               {data.title}
+            </Text>
+            <Text className="text-lime-400 font-bold text-base">
+              {formatCurrency(data.price)}
             </Text>
             {data.quantity && (
               <Text className="text-slate-400 font-subtitle text-sm">

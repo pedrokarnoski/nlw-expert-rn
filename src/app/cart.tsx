@@ -1,6 +1,8 @@
-import { Alert, ScrollView, Text, View } from "react-native";
+import { Alert, Linking, ScrollView, Text, View } from "react-native";
 
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
+import { useNavigation } from "expo-router";
 
 import { ProductCartProps, useCartStore } from "@/stores/cart-store";
 
@@ -11,9 +13,15 @@ import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import { Feather } from "@expo/vector-icons";
 import { LinkButton } from "@/components/link-button";
+import { useState } from "react";
+
+const PHONE_NUMBER = "+5546999127408";
 
 export default function Cart() {
+  const navigation = useNavigation();
   const cartStore = useCartStore();
+
+  const [address, setAddress] = useState("");
 
   const total = formatCurrency(
     cartStore.products.reduce(
@@ -34,6 +42,33 @@ export default function Cart() {
         },
       },
     ]);
+  }
+
+  function handleOrder() {
+    if (address.trim().length === 0) {
+      return Alert.alert("Pedido", "Informe os dados da entrega.");
+    }
+
+    const products = cartStore.products
+      .map((product) => `\n ${product.quantity} ${product.title}`)
+      .join("");
+
+    const message = `
+      😍 NOVO PEDIDO 🍔
+      \n Entregar em: ${address}
+
+      ${products}
+
+      \n Valor total: ${total}
+    `;
+
+    Linking.openURL(
+      `http://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${message}`
+    );
+
+    cartStore.clear();
+
+    navigation.goBack();
   }
 
   return (
@@ -68,12 +103,18 @@ export default function Cart() {
                 {total}
               </Text>
             </View>
-            <Input placeholder="Informe o endereço de entrega com rua, bairro, número e complemento" />
+            <Input
+              placeholder="Informe o endereço de entrega com rua, bairro, número e complemento"
+              onChangeText={(text) => setAddress(text)}
+              blurOnSubmit={true}
+              onSubmitEditing={handleOrder}
+              returnKeyType="next"
+            />
           </View>
         </ScrollView>
       </KeyboardAwareScrollView>
       <View className="p-5 gap-5">
-        <Button>
+        <Button onPress={handleOrder}>
           <Button.Text>Enviar pedido</Button.Text>
           <Button.Icon>
             <Feather name="arrow-right-circle" size={20} />
