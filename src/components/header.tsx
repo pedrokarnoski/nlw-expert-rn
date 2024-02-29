@@ -12,7 +12,12 @@ export function Header({ title, cartQuantityItems = 0 }: HeaderProps) {
   return (
     <View className="flex-row items-center border-b border-slate-700 pb-5 mx-5">
       <View className="flex-1">
-        <Image source={require("@/assets/logo.png")} className="h-6 w-32" />
+        <Image
+          source={{
+            uri: "https://raw.githubusercontent.com/rocketseat-education/nlw-expert-react-native/59d58e39e86e2c72a6e18a6a79a82184a5d664a8/src/assets/logo.png",
+          }}
+          className="h-6 w-32"
+        />
         <Text className="text-white text-xl font-heading mt-2">{title}</Text>
       </View>
 
