@@ -12,6 +12,7 @@ import { PRODUCTS } from "@/utils/data/products";
 import { formatCurrency } from "@/utils/functions/format-currency";
 import { Button } from "@/components/button";
 import { LinkButton } from "@/components/link-button";
+import { Rating } from "@/components/rating";
 
 export default function Product() {
   const navigation = useNavigation();
@@ -42,9 +43,14 @@ export default function Product() {
       />
 
       <View className="p-5 mt-2 flex-1">
-        <Text className="text-white text-xl font-heading">{product.title}</Text>
+        <View className="flex-row justify-between">
+          <Text className="text-white text-xl font-heading">
+            {product.title}
+          </Text>
+          <Rating stars={product.rating} />
+        </View>
 
-        <Text className="text-lime-400 text-2xl font-heading my-2">
+        <Text className="text-lime-400 text-2xl font-heading">
           {formatCurrency(product.price)}
         </Text>
 

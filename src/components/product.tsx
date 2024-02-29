@@ -40,15 +40,15 @@ export const Product = forwardRef<TouchableOpacity, ProductProps>(
             <Text className="text-lime-400 font-bold text-base">
               {formatCurrency(data.price)}
             </Text>
-            {data.quantity && (
-              <Text className="text-slate-400 font-subtitle text-sm">
-                {data.quantity} x
-              </Text>
-            )}
           </View>
           <Text className="text-slate-400 text-xs leading-5 mt-0.5">
             {data.description}
           </Text>
+          {data.quantity && (
+            <Text className="text-slate-100 font-subtitle text-sm">
+              Quant.: {data.quantity} x
+            </Text>
+          )}
         </View>
       </TouchableOpacity>
     );

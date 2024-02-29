@@ -6,6 +6,7 @@ const MENU = [
         id: "1",
         title: "X-React",
         price: 24.9,
+        rating: 4.9,
         description:
           "Um hamburger tão bonito que me deu fome enquanto eu fazia esse layout para o projeto...",
         cover: {
@@ -34,6 +35,7 @@ const MENU = [
         id: "2",
         title: "X-JavaScript",
         price: 34.9,
+        rating: 4.3,
         description:
           "Os ingredientes desse hambúrguer mudam toda semana, então você sempre terá uma surpresa...",
         cover: {
@@ -57,6 +59,7 @@ const MENU = [
         id: "3",
         title: "X-Cobol",
         price: 32.7,
+        rating: 3.9,
         description:
           "Aquele hambúrguer que não podemos tirar do cardápio devido aos clientes mais antigos da hamburgueria...",
         cover: {
@@ -80,6 +83,7 @@ const MENU = [
         id: "4",
         title: "X-Tailwind",
         price: 29.9,
+        rating: 4.5,
         description:
           "Aquele que você não gosta de primeira, mas depois fica viciado e não consegue mais largar...",
         cover: {
@@ -108,6 +112,7 @@ const MENU = [
         id: "5",
         title: "Sorvete com Brownie",
         price: 18.9,
+        rating: 4.7,
         description:
           "Uma sobremesa deliciosa para saborear. Escolha o sorvete e a calda que desejar...",
         cover: {
@@ -126,6 +131,7 @@ const MENU = [
         id: "6",
         title: "Cupcake",
         price: 22.9,
+        rating: 4.3,
         description:
           "Um delicioso Cupcake para adoçar. Escolha o sabor que você gosta...",
         cover: {
@@ -145,6 +151,7 @@ const MENU = [
         id: "7",
         title: "Hmmm, coquinha!",
         price: 6.9,
+        rating: 5.0,
         thumbnail: {
           uri: "https://raw.githubusercontent.com/rocketseat-education/nlw-expert-react-native/59d58e39e86e2c72a6e18a6a79a82184a5d664a8/src/assets/products/thumbnail/7.png",
         },
